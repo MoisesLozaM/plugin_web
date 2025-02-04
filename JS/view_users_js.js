@@ -50,3 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const imagen = document.querySelector(".imagen");
+    const mensaje = document.querySelector(".mensaje");
+
+    imagen.addEventListener("animationend", function () {
+        mensaje.classList.remove("oculto");
+    });
+});

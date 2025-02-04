@@ -235,7 +235,6 @@ function tres_imagenes($atts){
     }
 }
 add_shortcode('tres_imagenes', 'tres_imagenes');
-
 function video_img($atts){
     $atts = shortcode_atts([
         'video' => '',
@@ -251,14 +250,27 @@ function video_img($atts){
             <div class="video-img-container">
                 <video src="' . $video . '" class="video" autoplay loop muted></video>
                 <img src="' . $imagen . '" alt="Imagen" class="imagen">
-                <div class="mensaje oculto">
-                    <p>¡Animación terminada!</p>
-                    <button onclick="alert(\'¡Botón clickeado!\')">Continuar</button>
-                </div>
+                <div class="texto-sobre-video oculto"> Asocioación Nacional De Identificacion Del Automotor</div>
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                const imagen = document.querySelector(".imagen");
+                const texto = document.querySelector(".texto-sobre-video");
+
+                imagen.addEventListener("animationend", function () {
+                texto.classList.remove("oculto");
+                setTimeout(() => {
+                texto.style.opacity = "1"; // Hace que el texto aparezca progresivamente
+            }, 100); // Pequeña demora para que la transición se aplique correctamente
+        });
+    });
+</script>
+
         ';
     } else {
         return '<p>No se insertó correctamente la imagen, error en algún lado.</p>';
     }
 }
+
+//
 add_shortcode('video_img', 'video_img');
