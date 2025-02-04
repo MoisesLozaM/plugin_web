@@ -1,0 +1,407 @@
+.has-global-padding{
+    padding: 0px;
+}
+
+.mi-shortcode-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.mi-shortcode-tabla th, .mi-shortcode-tabla td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.mi-shortcode-tabla th {
+    background-color: #f4f4f4;
+    text-align: left;
+}
+
+.mi-shortcode-tabla tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/*
+    Estilos para las cards de contenido principal
+*/
+
+.imagen-fullscreen-container {
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    gap: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Añadido para contener la imagen */
+}
+
+.imagen-fullscreen-container-left {
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    background-color: #000;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    gap: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Añadido para contener la imagen */
+}
+
+.imagen-fullscreen {
+    max-width: 100%; /* Límite horizontal */
+    max-height: auto; /* Límite vertical */
+    width: 100%; /* Mantiene relación de aspecto */
+    height: auto; /* Mantiene relación de aspecto */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsión */
+    display: block;
+    margin: 0 auto;
+}
+
+.card-title{
+    font-size: 58px;
+    color: white;
+}
+.card-content {
+    font-size: 16px;
+    margin-top: 10px;
+    color: white;
+}
+
+.contenido-lateral {
+    display: block;
+    visibility: visible;
+    color: rgb(0, 0, 0); /* Ajusta el color según el fondo */
+}
+
+.contenido-centro {
+    position: absolute;
+    width: 200px; /* Ancho total del contenedor */
+    height: 200px; /* Alto total del contenedor */
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    z-index: 10;
+    font-size: 24px;
+}
+
+
+.contenido-centro h2,
+.contenido-centro h3 {
+    margin: 10px 0;
+    color: white; /* Color blanco para los textos */
+}
+
+/* Estilos para el variant del contenido principal */
+.contenido-centro-variant {
+    position: absolute;
+    width: 200px; /* Ancho total del contenedor */
+    height: 200px; /* Alto total del contenedor */
+    margin: 0 auto;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(255, 255, 255);
+    z-index: 10;
+    font-size: 24px;
+}
+
+  .ania {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .proc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-50%);
+  }
+  
+  .mex {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateX(50%);
+  }
+
+
+.boton-ver-mas {
+    background-color: white;
+    color: black;
+    border: none; /* Sin bordes */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Solo transición del color */
+}
+
+.boton-ver-mas:hover {
+    background-color: rgba(255, 255, 255,0.6); /* Blanco más opaco */
+}
+
+
+/*
+    Estilos para las cards laterales de contenido principal
+*/
+
+.imagen-lateral-container {
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    background-color: #000; /* Asegura opacidad completa */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Ocupa todo el ancho visible */
+    height: 100vh; /* Ocupa toda la altura visible */
+    max-width: 100%; /* Evita restricciones en el ancho */
+    padding:    0px 40px;
+    gap: 20px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+
+
+.imagen-lateral {
+    background-color: #000000;
+    position: relative;
+    width: 50%; /* La imagen ocupará el 50% del contenedor */
+    height: auto;
+    object-fit: cover; /* Ajusta la imagen para que se vea correctamente */
+}
+
+.contenido-lateral {
+    width: 50%; /* El contenido ocupará el 50% del contenedor */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: #333; /* Color de texto predeterminado */
+    gap: 10px; /* Espaciado entre los elementos del contenido */
+}
+ /*
+  Estilos para 3 imagenes
+ */
+
+ .tres-imagenes-container {
+    margin: 0;
+    position: relative;
+    z-index: 2; /* Asegura que el contenedor esté por encima de otros elementos */
+    background-color: #000; /* Fondo oscuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw; /* Ocupa todo el ancho visible */
+    height: 100vh; /* Ocupa toda la altura visible */
+    max-width: 100%; /* Evita restricciones en el ancho */
+    padding: 40px;
+    gap: 20px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.imagen-container {
+    background-color: #000;
+    position: relative;
+    width: 30%; /* Cada imagen ocupará el 30% del contenedor */
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra para efecto de profundidad */
+    overflow: hidden; /* Evita desbordamientos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imagen-tres {
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    height: 250px; /* Altura fija para todas las imágenes */
+    object-fit: cover; /* Recorta y ajusta la imagen sin deformarla */
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.imagen-container:hover .imagen-tres {
+    transform: scale(1.05); /* Efecto de acercamiento al pasar el mouse */
+}
+
+/* Contenedor que envuelve la barra y el contenido */
+.contenido-wrapper {
+    display: flex;
+    align-items: stretch; /* Estira los elementos hijos a la misma altura */
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* La barra blanca */
+.barra-blanca {
+    z-index: 3;
+    width: 1px; /* Grosor de la barra */
+    background-color: rgb(87, 87, 87); /* Color blanco */
+    /* Con align-items: stretch en el contenedor, la barra tomará la altura completa */
+}
+
+/* Contenido textual */
+.contenido-tres {
+    width: 100%;
+    padding: 20px;
+    text-align: left; /* Ajusta el texto a la izquierda */
+    color: white;
+}
+
+.card-title-imgs {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.card-content-imgs {
+    color: white;
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.boton-ver-mas {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.boton-ver-mas:hover {
+    background-color: white;
+    color: black;
+}
+
+/*
+Estilos para evectos de video
+*/
+.video-img-container {
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.video {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.imagen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    animation: zoomFade 10s ease-in-out forwards;
+}
+
+@keyframes zoomFade {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Ocultar el mensaje al inicio */
+.oculto {
+    display: none;
+}
+
+/* Estilos del mensaje */
+.mensaje {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+button {
+    background: #ffcc00;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #ff9900;
+}
+
+
+
+@media (max-width: 768px) {
+    .imagen-lateral-container {
+        flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
+        text-align: center; /* Centra el texto */
+        gap: 15px;
+    }
+
+    .imagen-lateral,
+    .contenido-lateral {
+        width: 100%; /* La imagen y el contenido ocuparán todo el ancho */
+    }
+
+    .contenido-lateral {
+        align-items: center; /* Centra el contenido en pantallas pequeñas */
+    }
+}
+
