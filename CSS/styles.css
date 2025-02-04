@@ -301,30 +301,51 @@
 }
 
 /*
-Estilos para evectos de video
+Estilos para eventos de video
 */
 .video-img-container {
-    margin: 0;
-    position: relative;
     z-index: 2;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9; /* Mantiene relación de aspecto del video */
     background-color: #000;
+    margin: 0;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
-    height: 100vh;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
 }
 
 .video {
-    max-width: 100%;
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover; /* Ajusta el video al contenedor */
     display: block;
-    margin: 0 auto;
+}
+
+.texto-sobre-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 800px;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+    font-size: clamp(1.2rem, 3vw, 2rem); /* Texto responsivo */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    line-height: 1.4;
+    pointer-events: none;
+}
+
+/* Ocultar al inicio */
+.oculto {
+    opacity: 0;
 }
 
 .imagen {
@@ -332,13 +353,28 @@ Estilos para evectos de video
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 100%;
+    max-width: 80%;
+    height: auto;
     object-fit: contain;
-    pointer-events: none;
     animation: zoomFade 10s ease-in-out forwards;
 }
 
+/* Ajustes para orientación vertical */
+@media (orientation: portrait) {
+    .video-img-container {
+        aspect-ratio: 9/16; /* Relación vertical */
+    }
+    
+    .texto-sobre-video {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+        padding: 10px;
+        width: 95%;
+    }
+    
+    .imagen {
+        max-width: 90%;
+    }
+}
 @keyframes zoomFade {
     0% {
         transform: translate(-50%, -50%) scale(0.5);
@@ -350,58 +386,108 @@ Estilos para evectos de video
     }
     100% {
         transform: translate(-50%, -50%) scale(0.5);
-        opacity: 0;
+        opacity: 0; /* Cambiar a 0 en el 100% */
+        visibility: hidden; /* Asegurar desaparición */
     }
 }
 
-/* Ocultar el mensaje al inicio */
-.oculto {
-    display: none;
-}
-
-/* Estilos del mensaje */
-.mensaje {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-button {
-    background: #ffcc00;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #ff9900;
+.imagen {
+    /* Añadir esta propiedad */
+    animation-fill-mode: forwards; /* Mantiene el último estado de la animación */
 }
 
 
 
-@media (max-width: 768px) {
+/* Media Queries mejoradas */
+@media (min-width: 350px) {
     .imagen-lateral-container {
-        flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
-        text-align: center; /* Centra el texto */
-        gap: 15px;
+        flex-direction: row;
+        padding: 20px;
+        gap: 20px;
+        height: auto; /* Altura basada en contenido */
+        min-height: 0; /* Elimina altura mínima */
     }
-
+    
     .imagen-lateral,
     .contenido-lateral {
-        width: 100%; /* La imagen y el contenido ocuparán todo el ancho */
-    }
-
-    .contenido-lateral {
-        align-items: center; /* Centra el contenido en pantallas pequeñas */
+        width: 50%;
+        max-width: 600px;
+        height: auto; /* Altura natural del contenido */
     }
 }
 
+@media (min-width: 350px) {
+    .tres-imagenes-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 15px;
+        height: auto; /* Altura según contenido */
+        min-height: 0;
+    }
+    
+    .imagen-container {
+        width: calc(33.33% - 10px);
+        max-width: 400px;
+        height: auto; /* Altura automática */
+    }
+}
+
+/* Versión ultra compacta para móviles en vertical */
+@media (max-width: 349px), (orientation: portrait) {
+    .imagen-fullscreen-container,
+    .imagen-lateral-container,
+    .tres-imagenes-container {
+        padding: 10px;
+        gap: 8px;
+        height: auto !important; /* Fuerza altura automática */
+        min-height: 0;
+    }
+    
+    .imagen-lateral-container {
+        flex-direction: column; /* Apila elementos en vertical */
+    }
+    
+    .imagen-lateral,
+    .contenido-lateral {
+        width: 100% !important; /* Ocupa todo el ancho */
+        max-width: none;
+    }
+    
+    .card-title {
+        font-size: 1.2rem; /* Tamaño relativo al contenedor */
+        line-height: 1.3;
+    }
+    
+    .card-content {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .imagen-container {
+        width: 100% !important; /* Fuerza ancho completo */
+        max-width: none;
+        margin: 5px 0;
+    }
+    
+    .imagen-tres {
+        height: auto; /* Altura natural de la imagen */
+        aspect-ratio: 16/9; /* Mantiene proporción */
+    }
+}
+
+/* Ajuste adicional para orientación vertical */
+@media (orientation: portrait) {
+    .tres-imagenes-container {
+        flex-direction: column; /* Apila tarjetas verticalmente */
+    }
+    
+    .contenido-centro,
+    .contenido-centro-variant {
+        position: relative;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+    }
+}
